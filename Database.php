@@ -130,8 +130,8 @@ class Database
         //if  valid database then save it ;
         return   DB_BREFIX . $db;
       } else {
-       // header('Content-Type: application/json; charset=utf-8');
-      //  http_response_code(401);
+        header('Content-Type: application/json; charset=utf-8');
+        http_response_code(401);
         echo json_encode(array(
           "success" => FALSE, 'logged_in' => false,
           "message" => "invalid connection"
@@ -139,8 +139,8 @@ class Database
         exit;
       }
     } catch (Exception $e) {
-    //  header('Content-Type: application/json; charset=utf-8');
-     // http_response_code(401);
+      header('Content-Type: application/json; charset=utf-8');
+      http_response_code(401);
       echo json_encode(array(
         "success" => FALSE, 'logged_in' => false,
         "message" => "invalid connection"
