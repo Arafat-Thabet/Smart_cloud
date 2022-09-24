@@ -60,8 +60,8 @@ class Database
     $database = str_replace(array("()", ".", "#", "@", " ", "!", "{", "}", "=", "+", "/", "$", "%", "'", '"', ")", "("), "", $database);
     $database = (strlen($database) > 2 ? $database : "empty");
     $return["database"] = $database;
-    ini_set('display_errors', -1);
-    error_reporting(-1);
+    ini_set('display_errors', 0);
+    error_reporting(0);
     $conn = new mysqli(HOST_NAME, USER_NAME, PASSWORD, DB_BREFIX . $database);
     if (!$conn->connect_error) {
       //if  valid database then save it ;
@@ -123,8 +123,8 @@ class Database
     }
     $db = $this->returnApiDatabase();
     try {
-      ini_set('display_errors',-1);
-      error_reporting(-1);
+      ini_set('display_errors',0);
+      error_reporting(0);
       $conn = new mysqli(HOST_NAME, USER_NAME, PASSWORD, DB_BREFIX . $db);
       if (!$conn->connect_error) {
         //if  valid database then save it ;
