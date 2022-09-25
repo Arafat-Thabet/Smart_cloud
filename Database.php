@@ -117,11 +117,14 @@ class Database
 
   public function getApiDatabase()
   {
+    $db="empty";
     $this->_Get_Post_content();
     if (isset($_POST['login_company']) && !empty($_POST['login_company'])) {
-      return DB_BREFIX . $_POST['login_company'];
+      $db= $_POST['login_company'];
     }
+    else{
     $db = $this->returnApiDatabase();
+    }
     try {
       ini_set('display_errors',0);
       error_reporting(0);
